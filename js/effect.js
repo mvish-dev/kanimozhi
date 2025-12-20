@@ -81,7 +81,7 @@ $('document').ready(function () {
 			var isPersistent = j >= 45;
 			// If persistent, use floatStick, otherwise floatUp (default in css is floatUp, but we can override or set explicit)
 			var animationName = isPersistent ? 'floatStick' : 'floatUp';
-			var endPos = (95 + Math.random() * 10) + 'vh'; // Random top position for sticking balloons
+			var endPos = (95 + Math.random() * 10) + 'svh'; // Random top position for sticking balloons
 
 			var svg = `
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70" width="100%" height="100%" style="fill: ${color};">
