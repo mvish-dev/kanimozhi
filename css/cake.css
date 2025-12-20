@@ -1,0 +1,162 @@
+/* Compiled from cake.less */
+.cake {
+  position: absolute;
+  display: none;
+  left: 50%;
+  margin-left: -150px; /* @D/2 */
+  width: 300px; /* @D */
+  height: 300px; /* @D */
+}
+
+/* ============================================== BASE */
+.cake:after {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 300px; /* @D */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px; /* @D */
+  height: 6px; /* @D/50 */
+}
+
+/* ============================================== Candle */
+.velas {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5px; /* -(@D/2)/20 */
+  margin-top: -25px; /* -(@D/2)/6 */
+  width: 15px; /* @D/20 */
+  height: 50px; /* @D/6 */
+}
+
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6.66px; /* @D/45 */
+}
+
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+
+/* ============================================== Fire */
+.fuego {
+  display: none;
+  border-radius: 100%;
+  box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  margin-left: -10px; /* -(@D/2)/15 */
+  width: 20px; /* @D/15 */
+  height: 37.5px; /* @D/8 */
+}
+
+.fuego:nth-child(1) { animation: fuego 2s infinite; }
+.fuego:nth-child(2) { animation: fuego 1.5s infinite; }
+.fuego:nth-child(3) { animation: fuego 1s infinite; }
+.fuego:nth-child(4) { animation: fuego 0.5s infinite; }
+.fuego:nth-child(5) { animation: fuego 0.2s infinite; }
+
+/* ============================================== Animation Fire */
+@keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    transform: translateY(-60px) scale(0); /* -(@D/5) */
+  }
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================================== Frosting */
+.cobertura {
+  background: rgba(236, 231, 227, 1);
+  border-radius: 150px; /* @D/2 */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-left: -83.33px; /* -(@D/2)/1.8 */
+  margin-top: -15px; /* -(@D/2)/10 */
+  width: 166.66px; /* @D/1.8 */
+  height: 37.5px; /* @D/8 */
+  z-index: 10;
+}
+
+.cobertura:after,
+.cobertura:before {
+  background: rgba(236, 231, 227, 1);
+  border-radius: 300px; /* @D */
+  content: "";
+  position: absolute;
+  width: 15px; /* @D/20 */
+  height: 30px; /* @D/10 */
+}
+
+.cobertura:after {
+  top: 20px; /* @D/15 */
+  right: 42.85px; /* @D/7 */
+}
+
+.cobertura:before {
+  top: 30px; /* @D/10 */
+  right: 27.27px; /* @D/11 */
+}
+
+/* ============================================== BIZCOCHO */
+.bizcocho {
+  background: rgba(109, 56, 38, 1);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -75px; /* -(@D/2)/2 */
+  width: 150px; /* @D/2 */
+  height: 100px; /* @D/3 */
+}
+
+.bizcocho:after,
+.bizcocho:before {
+  background: rgba(236, 231, 227, 0.6);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px; /* @D/20 */
+}
+
+.bizcocho:after {
+  top: 30%;
+  left: 0;
+}
+
+.bizcocho:before {
+  top: 60%;
+  left: 0;
+}
+
+/* ============================================== TEXT */
+h1, p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  user-select: none;
+}
