@@ -77,6 +77,12 @@ $('document').ready(function () {
 			var delay = Math.random() * 4; // 0 to 4s start delay
 			var scale = 0.5 + Math.random() * 0.8; // 0.5 to 1.3 scale
 
+			// Check if this is one of the last 10 balloons
+			var isPersistent = j >= 45;
+			// If persistent, use floatStick, otherwise floatUp (default in css is floatUp, but we can override or set explicit)
+			var animationName = isPersistent ? 'floatStick' : 'floatUp';
+			var endPos = (85 + Math.random() * 10) + 'vh'; // Random top position for sticking balloons
+
 			var svg = `
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70" width="100%" height="100%" style="fill: ${color};">
 					<path d="M25,0 C11.2,0 0,9.2 0,20.5 C0,34.5 20,48 24,50 C24.5,50.3 25.5,50.3 26,50 C30,48 50,34.5 50,20.5 C50,9.2 38.8,0 25,0 Z" />
@@ -89,7 +95,9 @@ $('document').ready(function () {
 				width: (50 * scale) + 'px',
 				height: (70 * scale) + 'px',
 				animationDuration: duration + 's',
-				animationDelay: delay + 's'
+				animationDelay: delay + 's',
+				animationName: animationName,
+				'--end-pos': endPos // CSS variable for the sticking height
 			});
 
 			balloonContainer.append($balloon);
