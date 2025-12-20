@@ -146,7 +146,7 @@ $('document').ready(function () {
 			var oldId = 'b' + i;
 			var newId = 'b' + (i + 100);
 			$('#' + oldId).attr('id', newId);
-			$('#' + newId).animate({ top: 240, left: start + (i - 1) * spacing }, 500);
+			$('#' + newId).animate({ top: 240, left: start + (i - 2.4) * spacing }, 500);
 		}
 
 		$('.balloons').css('opacity', '0.9');
