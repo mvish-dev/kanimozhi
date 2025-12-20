@@ -560,3 +560,81 @@ audio {
 		top: 220px;
 	}
 }
+
+/* ============================================== 
+   SPOTLIGHT EFFECT 
+   ============================================== */
+.spotlight {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 90;
+	/* Below balloons (99) but above background */
+	overflow: hidden;
+}
+
+.spotlight-beam {
+	position: absolute;
+	top: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: 800px;
+	height: 120vh;
+	/* Extend a bit further */
+	background: linear-gradient(to bottom,
+			rgba(255, 255, 255, 0.4) 0%,
+			rgba(255, 255, 210, 0.15) 50%,
+			rgba(255, 255, 255, 0) 90%);
+	clip-path: polygon(45% 0%, 55% 0%, 100% 100%, 0% 100%);
+	filter: blur(30px);
+	mix-blend-mode: overlay;
+	animation: beam-flicker 10s infinite alternate;
+}
+
+.spotlight-source {
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 200px;
+	height: 100px;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 240, 0) 70%);
+	filter: blur(15px);
+	opacity: 0.8;
+	mix-blend-mode: screen;
+}
+
+@keyframes beam-flicker {
+	0% {
+		opacity: 0.8;
+		transform: translateX(-50%) scaleX(1);
+	}
+
+	50% {
+		opacity: 0.9;
+		transform: translateX(-50%) scaleX(1.02);
+	}
+
+	100% {
+		opacity: 0.7;
+		transform: translateX(-50%) scaleX(0.98);
+	}
+}
+
+@media (max-width: 768px) {
+	.spotlight-beam {
+		max-width: 100%;
+		clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
+		opacity: 0.7;
+	}
+
+	.spotlight-source {
+		width: 150px;
+		height: 80px;
+	}
+}

@@ -22,7 +22,7 @@ $('document').ready(function () {
 	});
 
 	$('#turn_on').click(function () {
-		$('body').addClass('peach');
+		$('.spotlight').fadeIn('slow');
 		$(this).fadeOut('slow').delay(3000).promise().done(function () {
 			$('#play').fadeIn('slow');
 		});
@@ -30,15 +30,22 @@ $('document').ready(function () {
 	$('#play').click(function () {
 		var audio = $('.song')[0];
 		audio.play();
-		$('body').css('backgroud-color', '#FFF');
-		$('body').addClass('peach-after');
+		$('.spotlight').fadeOut(2000);
+		$('body').css('background-color', '#FFF5EE');
+
+		setTimeout(function () {
+			$('body').addClass('peach-after');
+		}, 2000);
+
 		$(this).fadeOut('slow').delay(3000).promise().done(function () {
 			$('#bannar_coming').fadeIn('slow');
 		});
 	});
 
 	$('#bannar_coming').click(function () {
-		$('.bannar').addClass('bannar-come');
+		setTimeout(function () {
+			$('.bannar').addClass('bannar-come');
+		}, 1500);
 
 		$(this).fadeOut('slow').delay(3000).promise().done(function () {
 			$('#balloons_flying').fadeIn('slow');
