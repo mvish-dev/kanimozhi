@@ -124,7 +124,7 @@ $('document').ready(function () {
 
 	$('#light_candle').click(function () {
 		$('.fuego').fadeIn('slow');
-		$(this).fadeOut('slow').promise().done(function () {
+		$(this).fadeOut('slow').delay(3000).promise().done(function () {
 			$('#wish_message').fadeIn('slow');
 		});
 	});
