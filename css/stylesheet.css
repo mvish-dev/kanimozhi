@@ -160,7 +160,7 @@ h5 {
 	}
 
 	100% {
-		bottom: var(--end-pos, 90vh);
+		bottom: var(--end-pos, 85vh);
 		opacity: 1;
 	}
 }
