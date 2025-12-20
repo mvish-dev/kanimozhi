@@ -45,17 +45,15 @@ $('document').ready(function () {
 	$('#bannar_coming').click(function () {
 		setTimeout(function () {
 			$('.bannar').addClass('bannar-come');
-		}, 1500);
+		}, 2000);
 
-		$(this).fadeOut('slow').delay(3000).promise().done(function () {
-			$('#balloons_flying').fadeIn('slow');
-
-			// Show the album photos
+		$(this).fadeOut('slow').delay(4000).promise().done(function () {
 			$('.album-photo').fadeIn('slow');
-
 			$('.can-zoom').fadeIn('slow');
-
 		});
+		setTimeout(function () {
+			$('#balloons_flying').fadeIn('slow');
+		}, 6000);
 	});
 
 	// Generic balloon loop functions
@@ -68,7 +66,34 @@ $('document').ready(function () {
 	}
 
 	$('#balloons_flying').click(function () {
-		$('.balloon-border').animate({ top: -500 }, 8000);
+		// Generate random balloons
+		var colors = ['#D4AF37', '#E6Aac4', '#4169E1', '#50C878', '#800080', '#FFA500', '#00BFFF', '#FF69B4', '#32CD32', '#FF4500', '#9370DB', '#FFD700', '#1E90FF'];
+		var balloonContainer = $('.balloon-border');
+
+		for (var j = 0; j < 60; j++) {
+			var color = colors[Math.floor(Math.random() * colors.length)];
+			var left = Math.random() * 95; // 0 to 95%
+			var duration = 6 + Math.random() * 5; // 6 to 11s
+			var delay = Math.random() * 4; // 0 to 4s start delay
+			var scale = 0.5 + Math.random() * 0.8; // 0.5 to 1.3 scale
+
+			var svg = `
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70" width="100%" height="100%" style="fill: ${color};">
+					<path d="M25,0 C11.2,0 0,9.2 0,20.5 C0,34.5 20,48 24,50 C24.5,50.3 25.5,50.3 26,50 C30,48 50,34.5 50,20.5 C50,9.2 38.8,0 25,0 Z" />
+					<line x1="25" y1="50" x2="25" y2="70" stroke="${color}" stroke-width="2" />
+				</svg>
+			`;
+
+			var $balloon = $('<div class="generated-balloon"></div>').html(svg).css({
+				left: left + '%',
+				width: (50 * scale) + 'px',
+				height: (70 * scale) + 'px',
+				animationDuration: duration + 's',
+				animationDelay: delay + 's'
+			});
+
+			balloonContainer.append($balloon);
+		}
 
 		var totalBalloons = 17;
 		for (var i = 1; i <= totalBalloons; i++) {
