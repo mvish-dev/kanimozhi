@@ -336,11 +336,12 @@ h5 {
 
 /* Hint */
 .can-zoom {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	width: 150px;
-	opacity: 0;
+	display: none;
+	position: relative;
+	top: 200px;
+	left: 8px;
+	width: 80px;
+	z-index: 101;
 	animation: float 3s ease-in-out infinite;
 	filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.8));
 }
@@ -553,5 +554,9 @@ audio {
 	.balloons h2,
 	.balloons h3 {
 		font-size: 1.5rem !important;
+	}
+
+	.can-zoom {
+		top: 220px;
 	}
 }
